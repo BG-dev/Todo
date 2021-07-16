@@ -1,3 +1,5 @@
+$buttonBgColor: #4DD599;
+
 *{
   margin: 0;
   padding: 0;
@@ -6,12 +8,11 @@
   font-family: 'Roboto', -apple-system, system-ui, llsans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
   font-size: 14px;
 }
 
 .todo{
-
+  display: flex;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -23,37 +24,47 @@
   border: 1px solid #F1F1F1;
 
   &__sidebar{
-    background-color: #E5E5E5;
+    background-color: #F4F6F8;
     width: 200px;
-    height: 100%;
+    height: calc(100% - 120px);
     border-right: 1px solid #F1F1F1;
     padding: 60px 20px;
   }
 
-  &__list{
-    li{
-      display: flex;
-      align-items: center;
-      padding: 10px 12px;
-      margin-bottom: 5px;
-      cursor: pointer;
-
-      &.active{
-        background: #FFFFFF;
-        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.04);
-        border-radius: 4px;
-      }
-    }
-    
-    i{
-      display: inline-flex;
-      margin-right: 10px;
-      svg{
-        path{
-          fill: #7C7C7C;
-        }
-      }
-    }
+  &__tasks{
+    flex: 1;
+    padding: 60px;
   }
 }
 
+.button{
+  background: $buttonBgColor;
+  border-radius: 4px;
+  color: #FFFFFF;
+  border: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  &:hover{
+    background: darken($buttonBgColor,6%);
+  }
+
+  &:active{
+    background: darken($buttonBgColor,10%);
+  }
+}
+
+
+
+.field{
+  background: #FFFFFF;
+  border: 1px solid #EFEFEF;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 12px;
+  width: 100%;
+
+  &:focus{
+    border-color: #ebebeb;
+  }
+}

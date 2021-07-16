@@ -1,0 +1,70 @@
+.tasks{
+    &__title{
+      font-family: Montserrat;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 39px;
+      color: #64C4ED;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f2f2f2 ;
+    }
+
+    &__items{
+        margin-top: 30px;
+        &-row{
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px ;
+
+            p{
+                margin-left: 15px ;
+            }
+        }
+    }
+
+    .checkbox{
+        input{
+            display: none;
+        }
+
+        svg{
+            opacity: 0;
+        }
+
+        &:hover{
+            label{
+                background: #F2F2F2;
+            }
+            svg{
+                opacity: 1;
+                path{
+                    stroke: #B2B2B2;
+                }
+            }
+        }
+
+        label{
+            cursor:  pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #E8E8E8;
+            width: 20px;
+            height: 20px;
+            border-radius: 30px;
+            transition: all ease 0.5s;
+        }
+
+        input:checked + label{
+            background: #4DD599;
+            border-color: #4DD599;
+
+            svg{
+                opacity: 1;
+                path{
+                    stroke: #FFFFFF;
+                }
+            }
+        }
+    }
+  }

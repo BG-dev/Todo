@@ -1,0 +1,84 @@
+$buttonColor: #868686;
+
+.list{
+    margin-bottom: 30px;
+
+    &__remove-icon{
+      opacity: 0;
+    }
+
+    &__add-button{
+      svg{
+        path{
+          stroke: $buttonColor;
+        }
+      }
+
+      color: $buttonColor;
+
+      &:hover{
+        svg{
+          path{
+            stroke: darken($color: $buttonColor, $amount: 20%);
+          }
+        }
+  
+        color: darken($color: $buttonColor, $amount: 20%);;
+      }
+    }
+
+    li{
+      display: flex;
+      align-items: center;
+      padding: 10px 12px;
+      margin-bottom: 2px;
+      cursor: pointer;
+      transition: all ease 0.3s;
+
+      span{
+        flex: 1;
+      }
+
+      .badge{
+        position: relative;
+        left: 8px;
+      }
+
+      &:hover{
+        background: rgba(255, 255, 255, 0.7);
+
+        .list__remove-icon{
+          opacity: 1;
+
+          svg{
+            path{
+              fill: $buttonColor;
+            }
+          }
+          &:hover{
+            svg{
+              path{
+                fill: darken($color: $buttonColor, $amount: 30%);
+              }
+            }
+          }
+        }
+      }
+
+      &.active{
+        background: #FFFFFF;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+      }
+    }
+    
+    i{
+      display: inline-flex;
+      margin-right: 10px;
+      svg{
+        path{
+          fill: #7C7C7C;
+        }
+      }
+    }
+  }

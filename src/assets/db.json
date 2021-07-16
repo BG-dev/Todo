@@ -27,13 +27,8 @@
     },
     {
       "name": "Спорт",
-      "colorId": 3,
+      "colorId": 8,
       "id": 6
-    },
-    {
-      "name": "Курс по ReactJS ToDo",
-      "colorId": 7,
-      "id": 7
     }
   ],
   "tasks": [
@@ -41,7 +36,7 @@
       "id": 1,
       "listId": 2,
       "text": "Изучить JavaScript",
-      "completed": true
+      "completed": false
     },
     {
       "id": 2,
@@ -62,7 +57,7 @@
       "completed": false
     },
     {
-      "listId": 2,
+      "listId": 4,
       "text": "123",
       "completed": true,
       "id": 5
@@ -98,34 +93,10 @@
       "id": 10
     },
     {
-      "listId": 2,
+      "listId": 4,
       "text": "222",
       "completed": true,
       "id": 12
-    },
-    {
-      "listId": 7,
-      "text": "Сделали сайдбар",
-      "completed": true,
-      "id": 15
-    },
-    {
-      "listId": 7,
-      "text": "Сделали список задач",
-      "completed": true,
-      "id": 16
-    },
-    {
-      "listId": 7,
-      "text": "Сделали удаление и редактирование задач и списков",
-      "completed": true,
-      "id": 17
-    },
-    {
-      "listId": 8,
-      "text": "tttt",
-      "completed": false,
-      "id": 18
     }
   ],
   "colors": [
