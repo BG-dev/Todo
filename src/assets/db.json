@@ -116,16 +116,16 @@
       "id": 20
     },
     {
-      "listId": 7,
-      "text": "Моргенштерн",
-      "completed": false,
-      "id": 21
-    },
-    {
       "listId": 5,
       "text": "Дом",
       "completed": false,
       "id": 22
+    },
+    {
+      "listId": 7,
+      "text": "Илон Маск",
+      "completed": false,
+      "id": 23
     }
   ],
   "colors": [
