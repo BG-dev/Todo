@@ -33,7 +33,7 @@ $buttonColor: #868686;
             svg{
                 width: 16px;
                 height: 16px;
-                margin-left: 4px;
+                margin-left: 12px;
                 path{
                     stroke: $buttonColor;
                 }
@@ -42,7 +42,7 @@ $buttonColor: #868686;
             span{
                 color: $buttonColor;
                 font-size: 16px;
-                margin-left: 19px;
+                margin-left: 27px;
             }
 
             &:hover{
@@ -74,12 +74,32 @@ $buttonColor: #868686;
         }
 
         &-row{
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px ;
+            label{
+                display: flex;
+                align-items: center;
+                padding: 5px;
+                transition: all ease 0.15s;
+                cursor: pointer;
+                margin-bottom: 2px;
+            }
 
-            p{
-                margin-left: 15px ;
+            &-info{
+                display: flex;
+                align-items: center;
+                width: 100%;
+
+                label{
+                    flex: 1;
+                }
+            }
+
+            &-text{
+                margin-left: 15px;
+            }
+
+            &:hover{
+                border-radius: 5px;
+                background: #F4F6F8;
             }
 
             &-actions {
@@ -90,8 +110,8 @@ $buttonColor: #868686;
                   display: flex;
                   align-items: center;
                   justify-content: center;
-                  width: 32px;
-                  height: 32px;
+                  width: 25px;
+                  height: 25px;
                   background-color: lighten(#f4f6f8, 2%);
                   border-radius: 6px;
                   margin-left: 5px;
@@ -105,6 +125,9 @@ $buttonColor: #868686;
                     width: 11px;
                     height: 11px;
                     opacity: 1;
+                    path{
+                        fill: #868686;
+                    }
                   }
                 }
             }
@@ -134,19 +157,19 @@ $buttonColor: #868686;
 
     
 
-        label{
-            cursor:  pointer;
+        .circle{
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             border: 2px solid #E8E8E8;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             border-radius: 30px;
             transition: all ease 0.5s;
         }
 
-        input:checked + label{
+        input:checked + .circle{
             background: #4DD599;
             border-color: #4DD599;
 

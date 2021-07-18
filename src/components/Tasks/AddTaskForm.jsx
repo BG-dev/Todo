@@ -14,6 +14,11 @@ function AddTaskForm({list, onAddTask}){
     }
 
     const addTask = function(){
+        if(inputValue.trim() === ''){
+            alert('Введите текст задачи!');
+            return;
+        }
+
         const obj = {
             "listId": list.id,
             "text": inputValue,
@@ -38,16 +43,18 @@ function AddTaskForm({list, onAddTask}){
                 <span>Новая задача</span>
             </div> :
             <div className="tasks__form-add">
-                <input
-                    className="field" 
-                    type="text" 
-                    placeholder="Текст задачи"
-                    onChange={e => {
-                        setInputValue(e.target.value);
-                    }}
-                />
-                <button className="button" onClick={() => addTask()} >Добавить задачу</button>
-                <button className="button button-grey" onClick={() => toggleVisibleForm()}>Отмена</button>
+                <form>
+                    <input
+                        className="field" 
+                        type="text" 
+                        placeholder="Текст задачи"
+                        onChange={e => {
+                            setInputValue(e.target.value);
+                        }}
+                    />
+                    <button className="button" onClick={() => addTask()} >Добавить задачу</button>
+                    <button className="button button-grey" onClick={() => toggleVisibleForm()}>Отмена</button>
+                </form>
             </div>
             } 
         </div>

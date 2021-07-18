@@ -114,7 +114,7 @@ const onCompleteTask = (listId, taskId, completed) => {
         ) : (
           'Загрузка...'
         )}
-        <AddList onAddList={onAddList} colors={colors} />
+        <AddList onAddList={onAddList} colors={colors} lists={lists} />
       </div>
       <div className="todo__tasks">
 

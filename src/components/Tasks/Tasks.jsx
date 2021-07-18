@@ -12,7 +12,7 @@ function Tasks({list, onAddTask, withoutEmpty, onRemoveTask, onCompleteTask}){
                 {list.name}
             </h2>
             <div className="tasks__items">
-                {!withoutEmpty && !list.tasks.length && <h2>Задачи отсутствуют</h2>}
+                {!withoutEmpty && !list.tasks.length && <h2 style={{color: list.color.hex}} >Задачи отсутствуют</h2>}
                 { 
                 list.tasks.map(task => (
                     <Task key={task.id} list={list} {...task} onRemove={onRemoveTask} onComplete={onCompleteTask} completed={task.completed}/>

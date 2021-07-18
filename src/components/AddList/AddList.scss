@@ -8,12 +8,12 @@
         padding: 18px;
         box-sizing: border-box;
         position: relative;
-        top: -20px;
-        left: 10px;
+        top: -10px;
 
         .button{
             width: 100%;
             margin-top: 13px;
+
         }
 
         &-close-btn{
@@ -21,6 +21,11 @@
             right: -8px;
             top: -8px;
             cursor: pointer;
+            opacity: 0.85;
+
+            &:hover{
+                opacity: 1;
+            }
         }
 
         &-colors{
@@ -35,7 +40,13 @@
                 border: 2px solid transparent;
                 cursor: pointer;
 
+                &:hover{
+                    border: 2px solid lighten($color: #525252, $amount: 40%) ;
+                    transition: all ease 0.15s;
+                }
+
                 &.active{
+                    transition: all ease 0.35s;
                     border: 2px solid #525252;
                 }
             }
