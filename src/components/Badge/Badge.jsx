@@ -4,7 +4,7 @@ import './Badge.scss';
 
 function Badge({color, onClick, className}){
     return(
-        <i onClick={onClick} className={`badge badge--${color.name} ${className}`}></i>
+        <i onClick={onClick} className={`badge badge--${color} ${className}`}></i>
     )
 }
 

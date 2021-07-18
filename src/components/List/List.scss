@@ -5,6 +5,12 @@ $buttonColor: #868686;
 
     &__remove-icon{
       opacity: 0;
+      svg{
+        path{
+          fill: $buttonColor;
+        }
+      }
+      transition: all ease 0.15s;
     }
 
     &__add-button{
@@ -33,7 +39,7 @@ $buttonColor: #868686;
       padding: 10px 12px;
       margin-bottom: 2px;
       cursor: pointer;
-      transition: all ease 0.3s;
+      transition: all ease 0.15s;
 
       span{
         flex: 1;

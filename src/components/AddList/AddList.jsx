@@ -30,7 +30,8 @@ function AddList({colors, onAddList}){
             })
             .then(({ data }) => {
                 const color = colors.filter(color => color.id === selectedColor)[0];
-                const listObj = { ...data, color};
+                const listObj = { ...data, color, tasks: []};
+                console.log(color)
                 onAddList(listObj);
             })
             .catch(() => {
@@ -48,8 +49,8 @@ function AddList({colors, onAddList}){
             items={[{
                 className: "list__add-button",
                 icon: <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 1V15" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M1 8H15" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M8 1V15" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M1 8H15" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>, 
                 name: 'Добавить список'
               }]}/>
@@ -60,12 +61,15 @@ function AddList({colors, onAddList}){
                     </svg>
                 </div>
                 <input 
-                onChange={e => setInputValue(e.target.value)}
-                className="field" type="text" placeholder="Название списка"/>
+                    onChange={e => setInputValue(e.target.value)}
+                    className="field" 
+                    type="text" 
+                    placeholder="Название списка"
+                />
                 <div className="add-list__popup-colors">
                     {
                         colors.map(color => (
-                            <Badge onClick={() => setSelectedColor(color.id)} color={color} key={color.id} 
+                            <Badge onClick={() => setSelectedColor(color.id)} color={color.name} key={color.id} 
                             className={selectedColor === color.id ? 'active' : ''}/>
                         ))
                     }
