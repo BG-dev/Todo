@@ -5,12 +5,13 @@ $buttonColor: #868686;
 
     &__remove-icon{
       opacity: 0;
+      transition: all ease 0.15s;
+      margin-left: 5px;
       svg{
         path{
           fill: $buttonColor;
         }
       }
-      transition: all ease 0.15s;
     }
 
     &__add-button{
@@ -52,6 +53,7 @@ $buttonColor: #868686;
 
       &:hover{
         background: rgba(255, 255, 255, 0.7);
+        border-radius: 5px;
 
         .list__remove-icon{
           opacity: 1;

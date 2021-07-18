@@ -93,51 +93,39 @@
     },
     {
       "listId": 5,
-      "text": "lol",
-      "completed": false,
-      "id": 14
-    },
-    {
-      "listId": 3,
-      "text": "1982",
-      "completed": false,
-      "id": 15
-    },
-    {
-      "listId": 3,
-      "text": "Fduecn 41",
-      "completed": false,
-      "id": 16
-    },
-    {
-      "listId": 5,
       "text": "Тачку",
-      "completed": false,
+      "completed": true,
       "id": 17
     },
     {
-      "listId": 4,
-      "text": "task",
-      "completed": false,
+      "listId": 7,
+      "text": "Джон Кеннеди",
+      "completed": true,
       "id": 18
     },
     {
       "listId": 7,
-      "text": "Джон",
+      "text": "Майкл Джексон",
       "completed": true,
       "id": 19
     },
     {
       "listId": 7,
-      "text": "Гарри",
-      "completed": false,
+      "text": "Стив Джобс",
+      "completed": true,
       "id": 20
     },
     {
-      "listId": 7,
-      "text": "Питер",
+      "listId": 5,
+      "text": "Дом",
       "completed": false,
-      "id": 21
+      "id": 22
+    },
+    {
+      "listId": 7,
+      "text": "Илон Маск",
+      "completed": false,
+      "id": 23
     }
   ],
   "colors": [
