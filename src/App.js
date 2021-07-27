@@ -7,7 +7,6 @@ import { Route, useHistory, useLocation } from 'react-router-dom';
 
 function App() {
 
-  const url = "https://todo-b6ec4-default-rtdb.europe-west1.firebasedatabase.app";
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
   const [activeItem, setActiveItem] = useState(null);
