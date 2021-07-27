@@ -6,85 +6,116 @@ import axios from 'axios';
 import { Route, useHistory, useLocation } from 'react-router-dom';
 
 function App() {
-  const [lists, setLists] = useState(null);
+  const [itemsList, setItemsList] = useState(null);
   const [colors, setColors] = useState(null);
+  const [tasksList, setTasksList] = useState(null);
   const [activeItem, setActiveItem] = useState(null);
+  const [currentId, setCurrentId] = useState(8);
+  const [currentTaskId, setCurrentTaskId] = useState(20)
   let history = useHistory();
   let location = useLocation();
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/lists?_expand=color&_embed=tasks')
+      .get('https://reacttodo-70470-default-rtdb.europe-west1.firebasedatabase.app/lists.json')
       .then(({ data }) => {
-        setLists(data);
+        setItemsList(data);
       });
     axios
-      .get('http://localhost:3001/colors')
+      .get('https://reacttodo-70470-default-rtdb.europe-west1.firebasedatabase.app/colors.json')
       .then(({ data }) => {
         setColors(data);
       });
+    axios
+      .get('https://reacttodo-70470-default-rtdb.europe-west1.firebasedatabase.app/tasks.json')
+      .then(({ data }) => {
+        setTasksList(data);
+      });
   }, []);
 
-  const onAddList = function(newItem){
-    const newList = [...lists, newItem];
-    setLists(newList);
+  const onAddList = function(inputValue, selectedColor){
+    const newItem = {
+      name: inputValue,
+      colorId: selectedColor,
+      id: currentId
+    }
+    const lists = [...itemsList, newItem];
+    setItemsList(lists);
+
+
+    axios
+      .patch('https://reacttodo-70470-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+        lists
+      })
+      .then(() => {
+        setCurrentId(currentId + 1);
+      })
+      .catch(() => {
+        alert('Ошибка при добавлении списка!');
+      })
   }
 
-  const onAddTask = function(listId, newTask){
-    const newList = lists.map(list => {
-      if(list.id === listId){
-        list.tasks.push(newTask);
-      }
-      return list;
-    });
-    setLists(newList);
+  const onAddTask = function(listId, inputValue){
+    const newTask = {
+      id: currentTaskId,
+      text: inputValue,
+      listId : listId,
+      completed: false
+    }
+    const tasks = [...tasksList, newTask]
+    setTasksList(tasks);
+
+    axios
+      .patch('https://reacttodo-70470-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+        tasks
+      })
+      .then(() => {
+        setCurrentTaskId(currentTaskId + 1);
+      })
+      .catch(() => {
+        alert('Ошибка при добавлении задания!');
+      })
   }
 
   const onRemoveList = function(id){
-    const newList = lists.filter(list => list.id !== id);
-    setLists(newList);
+    const lists = itemsList.filter(list => list.id !== id);
+    setItemsList(lists);
     history.push(`/`);
   }
 
-  const onRemoveTask = function(listId, taskId){
-    const newList = lists.map(list => {
-      if(list.id === listId){
-        list.tasks = list.tasks.filter(task => task.id !== taskId);
-      }
-      return list;
-    });
-    setLists(newList);
+    const onRemoveTask = function(taskId){
+    const tasks = tasksList.filter(task =>(
+      task.id !== taskId
+    ))
+    setTasksList(tasks);
+    console.log(tasks);
     axios
-        .delete('http://localhost:3001/tasks/'+ taskId);
+      .patch('https://reacttodo-70470-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+        tasks
+      })
 }
 
-const onCompleteTask = (listId, taskId, completed) => {
-  const newList = lists.map(list => {
-    if (list.id === listId) {
-      list.tasks = list.tasks.map(task => {
+const onCompleteTask = (index, taskId, completed) => {
+  const tasks = tasksList.map(task => {
         if (task.id === taskId) {
           task.completed = completed;
         }
         return task;
       });
-    }
-    return list;
-  });
-  setLists(newList);
+  setTasksList(tasks);
   axios
-    .patch('http://localhost:3001/tasks/' + taskId, {
-      completed
+    .patch('https://reacttodo-70470-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+      tasks
     })
 };
 
   useEffect(() => {
-    const listId = location.pathname.split('lists/')[1];
-    if (lists) {
-      const list = lists.find(list => list.id === Number(listId));
-      setActiveItem(list);
+    const itemId = location.pathname.split('lists/')[1];
+    if (itemsList) {
+      const item = itemsList.find(item => item.id === Number(itemId));
+      setActiveItem(item);
     }
-  }, [lists, location.pathname]);
-
+  }, [itemsList, location.pathname]);
 
   return (
     <div className="todo">
@@ -100,9 +131,10 @@ const onCompleteTask = (listId, taskId, completed) => {
           name: 'Все задачи',
           active: location.pathname === '/'
         }]}/>
-        {lists ? (
+        {itemsList ? (
           <List
-            items={lists}
+            items={itemsList}
+            colors={colors}
             isRemovable
             onRemoveList={(id) => onRemoveList(id)}
             activeItem={activeItem}
@@ -113,16 +145,18 @@ const onCompleteTask = (listId, taskId, completed) => {
         ) : (
           'Загрузка...'
         )}
-        <AddList onAddList={onAddList} colors={colors} lists={lists} />
+        <AddList onAddList={onAddList} colors={colors} lists={itemsList} />
       </div>
       <div className="todo__tasks">
 
         <Route exact path="/">
-          {lists && 
-            lists.map(list => (
+          {itemsList && 
+            itemsList.map(item => (
               <Tasks 
-                key={list.id} 
-                list={list} 
+                key={item.id} 
+                list={item} 
+                colors={colors}
+                tasks={tasksList}
                 onAddTask={onAddTask} 
                 withoutEmpty={true}
                 onRemoveTask={onRemoveTask}
@@ -131,9 +165,11 @@ const onCompleteTask = (listId, taskId, completed) => {
           ))}
         </Route>
         <Route path="/lists/:id">
-          {lists && activeItem && (
+          {itemsList && activeItem && (
             <Tasks 
               list={activeItem} 
+              tasks={tasksList}
+              colors={colors}
               onAddTask={onAddTask}
               onRemoveTask={onRemoveTask}
               onCompleteTask={onCompleteTask}

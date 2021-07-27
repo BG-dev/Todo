@@ -1,7 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import List from '../List/List';
 import Badge from '../Badge/Badge';
-import axios from 'axios';
 
 import './AddList.scss';
 
@@ -28,20 +27,8 @@ function AddList({colors, onAddList, lists}){
             return;
         }
 
-        axios
-            .post('http://localhost:3001/lists', {
-                name: inputValue,
-                colorId: selectedColor
-            })
-            .then(({ data }) => {
-                const color = colors.filter(color => color.id === selectedColor)[0];
-                const listObj = { ...data, color, tasks: []};
-                console.log(color)
-                onAddList(listObj);
-            })
-            .catch(() => {
-                alert('Ошибка при добавлении списка!');
-            })
+        // const color = colors.filter(color => color.id === selectedColor)[0];
+        onAddList(inputValue, selectedColor);
     }
 
     return(

@@ -83,49 +83,49 @@
       "listId": 4,
       "text": "Купить 1984!",
       "completed": true,
-      "id": 10
+      "id": 8
     },
     {
       "listId": 4,
       "text": "222",
       "completed": true,
-      "id": 12
+      "id": 9
     },
     {
       "listId": 5,
       "text": "Тачку",
       "completed": true,
-      "id": 17
+      "id": 10
     },
     {
       "listId": 7,
       "text": "Джон Кеннеди",
       "completed": true,
-      "id": 18
+      "id": 11
     },
     {
       "listId": 7,
       "text": "Майкл Джексон",
       "completed": true,
-      "id": 19
+      "id": 12
     },
     {
       "listId": 7,
       "text": "Стив Джобс",
       "completed": true,
-      "id": 20
+      "id": 13
     },
     {
       "listId": 5,
       "text": "Дом",
       "completed": false,
-      "id": 22
+      "id": 14
     },
     {
       "listId": 7,
       "text": "Илон Маск",
       "completed": false,
-      "id": 23
+      "id": 15
     }
   ],
   "colors": [

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React,{useState} from 'react';
 
 import './Tasks.scss';
@@ -19,18 +18,8 @@ function AddTaskForm({list, onAddTask}){
             return;
         }
 
-        const obj = {
-            "listId": list.id,
-            "text": inputValue,
-            "completed": false,
-          };
-
-        axios
-          .post('http://localhost:3001/tasks', obj)
-          .then(({data}) => {
-            onAddTask(list.id, data);
-            toggleVisibleForm();
-          });
+        onAddTask(list.id, inputValue);
+        toggleVisibleForm();
     }
 
     return(

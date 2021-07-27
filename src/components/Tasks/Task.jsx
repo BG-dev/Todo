@@ -2,12 +2,11 @@ import React from 'react';
 
 import './Tasks.scss';
 
-function Task({id, text, onRemove, list, completed, onComplete}){
+function Task({id, index, text, onRemove, list, completed, onComplete}){
 
     const onChangeCheckbox = e => {
-      onComplete(list.id, id, e.target.checked);
+      onComplete(index, id, e.target.checked);
     };
-
     return(
         <div key={id} className="tasks__items-row">
           <label htmlFor={`checkbox-${id}`}>
@@ -22,7 +21,7 @@ function Task({id, text, onRemove, list, completed, onComplete}){
             <div className="tasks__items-row-info">
               <label className="tasks__items-row-text" htmlFor={`checkbox-${id}`}>{text}</label>
               <div className="tasks__items-row-actions">
-                  <div onClick={() => onRemove(list.id, id)}>
+                  <div onClick={() => onRemove(id)}>
                     <svg
                       width="11"
                       height="11"
