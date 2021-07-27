@@ -2,36 +2,36 @@
   "lists": [
     {
       "id": 1,
-      "name": "Продажи",
+      "name": "Sales",
       "colorId": 5
     },
     {
       "id": 2,
-      "name": "Фронтенд",
+      "name": "Frontend",
       "colorId": 4
     },
     {
       "id": 3,
-      "name": "Фильмы и сериалы",
+      "name": "Movies",
       "colorId": 3
     },
     {
       "id": 4,
-      "name": "Книги",
+      "name": "Books",
       "colorId": 2
     },
     {
       "id": 5,
-      "name": "Личное",
+      "name": "Personal",
       "colorId": 1
     },
     {
-      "name": "Спорт",
+      "name": "Sport",
       "colorId": 8,
       "id": 6
     },
     {
-      "name": "Список жертв",
+      "name": "Kill List",
       "colorId": 7,
       "id": 7
     }
@@ -40,19 +40,19 @@
     {
       "id": 1,
       "listId": 2,
-      "text": "Изучить JavaScript",
+      "text": "Learn JavaScript",
       "completed": true
     },
     {
       "id": 2,
       "listId": 2,
-      "text": "Изучить паттерны проектирования",
+      "text": "Learn design patterns",
       "completed": false
     },
     {
       "id": 3,
       "listId": 2,
-      "text": "ReactJS Hooks (useState, useReducer, useEffect и т.д.)",
+      "text": "ReactJS Hooks (useState, useReducer, useEffect, etc)",
       "completed": false
     },
     {
@@ -63,7 +63,7 @@
     },
     {
       "listId": 4,
-      "text": "123",
+      "text": "Steve Jobs",
       "completed": true,
       "id": 5
     },
@@ -81,49 +81,49 @@
     },
     {
       "listId": 4,
-      "text": "Купить 1984!",
+      "text": "Harry Potter and the Philosophers Stone",
       "completed": true,
       "id": 8
     },
     {
       "listId": 4,
-      "text": "222",
+      "text": "1984",
       "completed": true,
       "id": 9
     },
     {
       "listId": 5,
-      "text": "Тачку",
+      "text": "Audi A7 Sportback",
       "completed": true,
       "id": 10
     },
     {
       "listId": 7,
-      "text": "Джон Кеннеди",
+      "text": "John Kennedy",
       "completed": true,
       "id": 11
     },
     {
       "listId": 7,
-      "text": "Майкл Джексон",
+      "text": "Michael Jackson",
       "completed": true,
       "id": 12
     },
     {
       "listId": 7,
-      "text": "Стив Джобс",
+      "text": "Steve Jobs",
       "completed": true,
       "id": 13
     },
     {
       "listId": 5,
-      "text": "Дом",
+      "text": "Airbus Helicopters EC 130 T2",
       "completed": false,
       "id": 14
     },
     {
       "listId": 7,
-      "text": "Илон Маск",
+      "text": "Elon Musk",
       "completed": false,
       "id": 15
     }

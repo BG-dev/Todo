@@ -11,7 +11,7 @@ function Tasks({list, tasks, colors, onAddTask, withoutEmpty, onRemoveTask, onCo
                 {list.name}
             </h2>
             <div className="tasks__items">
-                {!withoutEmpty && tasks && tasks.filter(task => task.listId === list.id).length === 0 && <h2 style={{color: colors && colors.filter(color => color.id === list.colorId)[0].hex}} >Задачи отсутствуют</h2>}
+                {!withoutEmpty && tasks && tasks.filter(task => task.listId === list.id).length === 0 && <h2 style={{color: colors && colors.filter(color => color.id === list.colorId)[0].hex}} >There are no tasks</h2>}
                 { tasks && 
                 tasks.filter(task => task.listId === list.id).map((task, index) => (
                     <Task key={task.id} list={list} index={index} id={task.id} text={task.text} onRemove={onRemoveTask} onComplete={onCompleteTask} completed={task.completed}/>

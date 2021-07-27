@@ -18,16 +18,15 @@ function AddList({colors, onAddList, lists}){
 
     const addList = function(){
         if(inputValue.trim() === ''){
-            alert('Введите название списка!');
+            alert('Enter the name of the list!');
             return;
         }
 
         if(lists.length === 10){
-            alert('Превышен лимит количества списков!');
+            alert('The limit on the number of lists has been exceeded!');
             return;
         }
 
-        // const color = colors.filter(color => color.id === selectedColor)[0];
         onAddList(inputValue, selectedColor);
     }
 
@@ -45,7 +44,7 @@ function AddList({colors, onAddList, lists}){
                     <path d="M8 1V15" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M1 8H15" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>, 
-                name: 'Добавить список'
+                name: 'New List'
               }]}/>
             {visiblePopup && <div className="add-list__popup">
                 <div onClick={() => setVisiblePopup(false)} className="add-list__popup-close-btn">
@@ -58,7 +57,7 @@ function AddList({colors, onAddList, lists}){
                         onChange={e => setInputValue(e.target.value)}
                         className="field" 
                         type="text" 
-                        placeholder="Название списка"
+                        placeholder="New List"
                     />
                     <div className="add-list__popup-colors">
                         {
@@ -72,7 +71,7 @@ function AddList({colors, onAddList, lists}){
                         addList();
                         setInputValue('');
                         setVisiblePopup(false);
-                    }} className="button">Добавить</button>
+                    }} className="button">Add a List</button>
                 </form>
             </div>}
         </div>

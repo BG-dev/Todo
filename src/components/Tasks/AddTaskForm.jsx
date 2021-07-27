@@ -14,7 +14,7 @@ function AddTaskForm({list, onAddTask}){
 
     const addTask = function(){
         if(inputValue.trim() === ''){
-            alert('Ввеpдите текст задачи!');
+            alert('Enter the task text!');
             return;
         }
 
@@ -29,20 +29,20 @@ function AddTaskForm({list, onAddTask}){
                     <path d="M8 1V15" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M1 8H15" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span>Новая задача</span>
+                <span>Add a Task</span>
             </div> :
             <div className="tasks__form-add">
                 <form>
                     <input
                         className="field" 
                         type="text" 
-                        placeholder="Текст задачи"
+                        placeholder="Add a Task"
                         onChange={e => {
                             setInputValue(e.target.value);
                         }}
                     />
-                    <button className="button" onClick={() => addTask()}>Добавить задачу</button>
-                    <button className="button button-grey" onClick={() => toggleVisibleForm()}>Отмена</button>
+                    <button className="button" onClick={() => addTask()}>Add a Task</button>
+                    <button className="button button-grey" onClick={() => toggleVisibleForm()}>Cancel</button>
                 </form>
             </div>
             } 
