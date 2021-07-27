@@ -7,6 +7,8 @@ import './AddList.scss';
 
 function AddList({colors, onAddList, lists}){
 
+    const url = "http://localhost:3000";
+
     const [visiblePopup, setVisiblePopup] = useState(false);
     const [selectedColor, setSelectedColor] = useState(1);
     const [inputValue, setInputValue] = useState('');
@@ -29,7 +31,7 @@ function AddList({colors, onAddList, lists}){
         }
 
         axios
-            .post('https://react-todo-app-nikita.herokuapp.com/lists', {
+            .post(`${url}/lists`, {
                 name: inputValue,
                 colorId: selectedColor
             })

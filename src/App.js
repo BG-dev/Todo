@@ -6,6 +6,8 @@ import axios from 'axios';
 import { Route, useHistory, useLocation } from 'react-router-dom';
 
 function App() {
+  const url = "https://react-todo-app-nikita.herokuapp.com/api";
+
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
   const [activeItem, setActiveItem] = useState(null);
@@ -14,12 +16,12 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('https://react-todo-app-nikita.herokuapp.com/lists?_expand=color&_embed=tasks')
+      .get(`${url}/lists?_expand=color&_embed=tasks`)
       .then(({ data }) => {
         setLists(data);
       });
     axios
-      .get('https://react-todo-app-nikita.herokuapp.com/colors')
+      .get(`${url}/colors`)
       .then(({ data }) => {
         setColors(data);
       });
@@ -55,7 +57,7 @@ function App() {
     });
     setLists(newList);
     axios
-        .delete('https://react-todo-app-nikita.herokuapp.com/tasks/'+ taskId);
+        .delete(`${url}/tasks/`+ taskId);
 }
 
 const onCompleteTask = (listId, taskId, completed) => {
@@ -72,7 +74,7 @@ const onCompleteTask = (listId, taskId, completed) => {
   });
   setLists(newList);
   axios
-    .patch('https://react-todo-app-nikita.herokuapp.com/tasks/' + taskId, {
+    .patch(`${url}/tasks/` + taskId, {
       completed
     })
 };
@@ -84,6 +86,8 @@ const onCompleteTask = (listId, taskId, completed) => {
       setActiveItem(list);
     }
   }, [lists, location.pathname]);
+
+console.log(location.pathname)
 
 
   return (
