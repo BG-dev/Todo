@@ -7,7 +7,7 @@ import './AddList.scss';
 
 function AddList({colors, onAddList, lists}){
 
-    const url = "http://localhost:3000";
+    const url = "https://react-todo-app-nikita.herokuapp.com/api";
 
     const [visiblePopup, setVisiblePopup] = useState(false);
     const [selectedColor, setSelectedColor] = useState(1);

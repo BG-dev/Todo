@@ -5,7 +5,7 @@ import './Tasks.scss';
 
 function AddTaskForm({list, onAddTask}){
 
-    const url = process.env.REACT_APP_DB_URL;
+    const url = "https://react-todo-app-nikita.herokuapp.com/api";;
 
     const [visibleForm, setVisibleForm] = useState(false);
     const [inputValue, setInputValue] = useState('');
