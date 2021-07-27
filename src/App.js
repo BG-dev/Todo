@@ -7,6 +7,7 @@ import { Route, useHistory, useLocation } from 'react-router-dom';
 
 function App() {
 
+  const url = "https://todo-bg-dev.vercel.app"
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
   const [activeItem, setActiveItem] = useState(null);
