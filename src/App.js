@@ -7,6 +7,7 @@ import { Route, useHistory, useLocation } from 'react-router-dom';
 
 function App() {
 
+  const url = "https://todo-b6ec4-default-rtdb.europe-west1.firebasedatabase.app";
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
   const [activeItem, setActiveItem] = useState(null);
@@ -15,14 +16,15 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/lists?_expand=color&_embed=tasks')
+      .get(`${url}/lists?_expand=color&_embed=tasks`)
       .then(({ data }) => {
         setLists(data);
       });
     axios
-      .get('http://localhost:3001/colors')
+      .get(`${url}/colors`)
       .then(({ data }) => {
         setColors(data);
+        console.log(colors)
       });
   }, []);
 
@@ -56,7 +58,7 @@ function App() {
     });
     setLists(newList);
     axios
-        .delete('http://localhost:3001/tasks/'+ taskId);
+        .delete(`${url}/tasks/`+ taskId);
 }
 
 const onCompleteTask = (listId, taskId, completed) => {
@@ -73,7 +75,7 @@ const onCompleteTask = (listId, taskId, completed) => {
   });
   setLists(newList);
   axios
-    .patch('http://localhost:3001/tasks/' + taskId, {
+    .patch(`${url}/tasks/` + taskId, {
       completed
     })
 };
