@@ -24,7 +24,6 @@ function App() {
       .get(`${url}/colors`)
       .then(({ data }) => {
         setColors(data);
-        console.log(colors)
       });
   }, []);
 
