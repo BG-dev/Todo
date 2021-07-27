@@ -4,10 +4,10 @@ const router = jsonServer.router('./src/assets/db.json');
 const middleweres = jsonServer.defaults({
     static: './build'
 });
-const PORT = process.env.PORT || 8000;
+const PORT = 3001;
 server.use(middleweres);
 server.use(jsonServer.rewriter({
-    '/': '/list',
+    '/api/*': '/$1',
 }))
 server.use(router);
 server.listen(PORT, () => {
