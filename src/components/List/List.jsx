@@ -6,7 +6,7 @@ import './List.scss';
 function List({items, isRemovable, onClick, onRemoveList, onClickItem, activeItem}){
 
     const removeList = function(item){
-      axios.delete('https://react-todo-app-nikita.herokuapp.com/lists/' + item.id).then(() => onRemoveList(item.id));     
+      axios.delete('http://localhost:3001/lists/' + item.id).then(() => onRemoveList(item.id));     
     }
 
     return(

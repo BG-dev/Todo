@@ -5,8 +5,6 @@ import './Tasks.scss';
 
 function AddTaskForm({list, onAddTask}){
 
-    const url = "https://react-todo-app-nikita.herokuapp.com/api";;
-
     const [visibleForm, setVisibleForm] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
@@ -28,7 +26,7 @@ function AddTaskForm({list, onAddTask}){
           };
 
         axios
-          .post(`${url}/tasks`, obj)
+          .post('http://localhost:3001/tasks', obj)
           .then(({data}) => {
             onAddTask(list.id, data);
             toggleVisibleForm();

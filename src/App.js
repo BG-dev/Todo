@@ -6,8 +6,6 @@ import axios from 'axios';
 import { Route, useHistory, useLocation } from 'react-router-dom';
 
 function App() {
-  const url = "https://react-todo-app-nikita.herokuapp.com/api";
-
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
   const [activeItem, setActiveItem] = useState(null);
@@ -16,12 +14,12 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(`${url}/lists?_expand=color&_embed=tasks`)
+      .get('http://localhost:3001/lists?_expand=color&_embed=tasks')
       .then(({ data }) => {
         setLists(data);
       });
     axios
-      .get(`${url}/colors`)
+      .get('http://localhost:3001/colors')
       .then(({ data }) => {
         setColors(data);
       });
@@ -57,7 +55,7 @@ function App() {
     });
     setLists(newList);
     axios
-        .delete(`${url}/tasks/`+ taskId);
+        .delete('http://localhost:3001/tasks/'+ taskId);
 }
 
 const onCompleteTask = (listId, taskId, completed) => {
@@ -74,7 +72,7 @@ const onCompleteTask = (listId, taskId, completed) => {
   });
   setLists(newList);
   axios
-    .patch(`${url}/tasks/` + taskId, {
+    .patch('http://localhost:3001/tasks/' + taskId, {
       completed
     })
 };
@@ -86,8 +84,6 @@ const onCompleteTask = (listId, taskId, completed) => {
       setActiveItem(list);
     }
   }, [lists, location.pathname]);
-
-console.log(location.pathname)
 
 
   return (
