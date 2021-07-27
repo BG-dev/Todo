@@ -14,12 +14,12 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/lists?_expand=color&_embed=tasks')
+      .get('https://react-todo-app-nikita.herokuapp.com/lists?_expand=color&_embed=tasks')
       .then(({ data }) => {
         setLists(data);
       });
     axios
-      .get('http://localhost:3001/colors')
+      .get('https://react-todo-app-nikita.herokuapp.com/colors')
       .then(({ data }) => {
         setColors(data);
       });
@@ -55,7 +55,7 @@ function App() {
     });
     setLists(newList);
     axios
-        .delete('http://localhost:3001/tasks/'+ taskId);
+        .delete('https://react-todo-app-nikita.herokuapp.com/tasks/'+ taskId);
 }
 
 const onCompleteTask = (listId, taskId, completed) => {
@@ -72,7 +72,7 @@ const onCompleteTask = (listId, taskId, completed) => {
   });
   setLists(newList);
   axios
-    .patch('http://localhost:3001/tasks/' + taskId, {
+    .patch('https://react-todo-app-nikita.herokuapp.com/tasks/' + taskId, {
       completed
     })
 };

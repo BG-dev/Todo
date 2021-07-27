@@ -29,7 +29,7 @@ function AddList({colors, onAddList, lists}){
         }
 
         axios
-            .post('http://localhost:3001/lists', {
+            .post('https://react-todo-app-nikita.herokuapp.com/lists', {
                 name: inputValue,
                 colorId: selectedColor
             })

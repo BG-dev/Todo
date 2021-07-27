@@ -26,7 +26,7 @@ function AddTaskForm({list, onAddTask}){
           };
 
         axios
-          .post('http://localhost:3001/tasks', obj)
+          .post('https://react-todo-app-nikita.herokuapp.com/tasks', obj)
           .then(({data}) => {
             onAddTask(list.id, data);
             toggleVisibleForm();
