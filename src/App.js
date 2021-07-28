@@ -80,7 +80,11 @@ function App() {
   const onRemoveList = function(id){
     const lists = itemsList.filter(list => list.id !== id);
     setItemsList(lists);
-    history.push(`/`);
+    axios
+      .patch('https://reacttodo-70470-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+        lists
+    })
+    history.push(`/lists/1`);
   }
 
     const onRemoveTask = function(taskId){
@@ -88,7 +92,6 @@ function App() {
       task.id !== taskId
     ))
     setTasksList(tasks);
-    console.log(tasks);
     axios
       .patch('https://reacttodo-70470-default-rtdb.europe-west1.firebasedatabase.app/.json', {
         tasks

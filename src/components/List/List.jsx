@@ -1,14 +1,11 @@
 import React from 'react';
 import Badge from '../Badge/Badge';
-import axios from 'axios';
 import './List.scss';
 
 function List({items, colors, isRemovable, onClick, onRemoveList, onClickItem, activeItem}){
 
-    const removeList = function(item, index){
-      axios.delete('https://reacttodo-70470-default-rtdb.europe-west1.firebasedatabase.app/lists/' + index + '.json').then(() => {
+    const removeList = function(item){
         onRemoveList(item.id)
-      });     
     }
 
     return(
