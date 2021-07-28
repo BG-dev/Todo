@@ -84,7 +84,9 @@ function App() {
       .patch('https://reacttodo-70470-default-rtdb.europe-west1.firebasedatabase.app/.json', {
         lists
     })
-    history.push(`/lists/1`);
+    .then(()=> {
+      history.push(`/`);
+    })
   }
 
     const onRemoveTask = function(taskId){
