@@ -17,17 +17,17 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('https://todo-5485b-default-rtdb.europe-west1.firebasedatabase.app/lists.json')
+      .get('https://todo-app-eeef8-default-rtdb.europe-west1.firebasedatabase.app/lists.json')
       .then(({ data }) => {
         setItemsList(data);
       });
     axios
-      .get('https://todo-5485b-default-rtdb.europe-west1.firebasedatabase.app/colors.json')
+      .get('https://todo-app-eeef8-default-rtdb.europe-west1.firebasedatabase.app/colors.json')
       .then(({ data }) => {
         setColors(data);
       });
     axios
-      .get('https://todo-5485b-default-rtdb.europe-west1.firebasedatabase.app/tasks.json')
+      .get('https://todo-app-eeef8-default-rtdb.europe-west1.firebasedatabase.app/tasks.json')
       .then(({ data }) => {
         setTasksList(data);
       });
@@ -44,7 +44,7 @@ function App() {
 
 
     axios
-      .patch('https://todo-5485b-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+      .patch('https://todo-app-eeef8-default-rtdb.europe-west1.firebasedatabase.app/.json', {
         lists
       })
       .then(() => {
@@ -66,7 +66,7 @@ function App() {
     setTasksList(tasks);
 
     axios
-      .patch('https://todo-5485b-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+      .patch('https://todo-app-eeef8-default-rtdb.europe-west1.firebasedatabase.app/.json', {
         tasks
       })
       .then(() => {
@@ -81,7 +81,7 @@ function App() {
     const lists = itemsList.filter(list => list.id !== id);
     setItemsList(lists);
     axios
-      .patch('https://todo-5485b-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+      .patch('https://todo-app-eeef8-default-rtdb.europe-west1.firebasedatabase.app/.json', {
         lists
     })
     .then(()=> {
@@ -95,7 +95,7 @@ function App() {
     ))
     setTasksList(tasks);
     axios
-      .patch('https://todo-5485b-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+      .patch('https://todo-app-eeef8-default-rtdb.europe-west1.firebasedatabase.app/.json', {
         tasks
       })
 }
@@ -109,7 +109,7 @@ const onCompleteTask = (index, taskId, completed) => {
       });
   setTasksList(tasks);
   axios
-    .patch('https://todo-5485b-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+    .patch('https://todo-app-eeef8-default-rtdb.europe-west1.firebasedatabase.app/.json', {
       tasks
     })
 };
