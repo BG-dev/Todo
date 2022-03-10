@@ -5,6 +5,8 @@ import Tasks from './components/Tasks/Tasks';
 import axios from 'axios';
 import { Route, useHistory, useLocation } from 'react-router-dom';
 
+const url = 'https://todo-79c7e-default-rtdb.europe-west1.firebasedatabase.app/'
+
 function App() {
   const [itemsList, setItemsList] = useState(null);
   const [colors, setColors] = useState(null);
@@ -17,17 +19,17 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('https://toto-app-1adb0-default-rtdb.europe-west1.firebasedatabase.app/lists.json')
+      .get(`${url}lists.json`)
       .then(({ data }) => {
         setItemsList(data);
       });
     axios
-      .get('https://toto-app-1adb0-default-rtdb.europe-west1.firebasedatabase.app/colors.json')
+      .get(`${url}colors.json`)
       .then(({ data }) => {
         setColors(data);
       });
     axios
-      .get('https://toto-app-1adb0-default-rtdb.europe-west1.firebasedatabase.app/tasks.json')
+      .get(`${url}tasks.json`)
       .then(({ data }) => {
         setTasksList(data);
       });
@@ -44,7 +46,7 @@ function App() {
 
 
     axios
-      .patch('https://toto-app-1adb0-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+      .patch(`${url}.json`, {
         lists
       })
       .then(() => {
@@ -66,7 +68,7 @@ function App() {
     setTasksList(tasks);
 
     axios
-      .patch('https://toto-app-1adb0-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+      .patch(`${url}.json`, {
         tasks
       })
       .then(() => {
@@ -81,7 +83,7 @@ function App() {
     const lists = itemsList.filter(list => list.id !== id);
     setItemsList(lists);
     axios
-      .patch('https://toto-app-1adb0-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+      .patch(`${url}.json`, {
         lists
     })
     .then(()=> {
@@ -95,7 +97,7 @@ function App() {
     ))
     setTasksList(tasks);
     axios
-      .patch('https://toto-app-1adb0-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+      .patch(`${url}.json`, {
         tasks
       })
 }
@@ -109,7 +111,7 @@ const onCompleteTask = (index, taskId, completed) => {
       });
   setTasksList(tasks);
   axios
-    .patch('https://toto-app-1adb0-default-rtdb.europe-west1.firebasedatabase.app/.json', {
+    .patch(`${url}.json`, {
       tasks
     })
 };
